@@ -1,0 +1,37 @@
+---
+title: "Project proposal"
+author: "Team name"
+output: html_document
+---
+
+```{r load-packages, message = FALSE}
+library(tidyverse)
+library(broom)
+```
+
+## 1. Introduction
+
+Text goes here. Refer to the Markdown Quick Reference: Help -> Markdown Quick Reference. 
+
+## 2. Data
+
+Text goes here.
+
+```{r}
+# Code goes here
+```
+
+## 3. Data analysis plan
+
+Text goes here.
+
+
+```{r}
+# Code goes here
+```
+
+
+## 4. Data Ethics Review
+
+The data ethics review section will be introduced in a separate class and is not part of the original proposal deadline.
+
