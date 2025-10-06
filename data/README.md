@@ -1,6 +1,6 @@
 # data
 
-Place data file(s) in this folder.
+Place data file(s) in this folder. Add the dimensions (rows and columns).
 
 Then, include codebooks (variables, and their descriptions) for your data file(s)
 using the following format.
