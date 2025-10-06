@@ -15,7 +15,7 @@ your project.
 
 ## Handout
 
-Our presentation can be found [here](handout/handout.pdf). You can update the filename and extension of your handout.
+Our handout can be found [here](handout/handout.pdf). You can update the filename and extension of your handout, currently it is called handout.pdf
 
 ## Memo
 
