@@ -37,4 +37,6 @@ Text goes here.
 
 ```{r}
 # Code goes here
+# Code to calculate summary statistics
+# Code for a visualization
 ```
