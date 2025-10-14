@@ -18,21 +18,24 @@ Text goes here. Refer to the Markdown Quick Reference: Help -> Markdown Quick Re
 
 ## 2. Data
 
-Text goes here. Place your data in the /data folder, and add dimensions and codebook to the README in that folder. Then print out the output of glimpse() or skim() of your data frame.
-
-```{r}
+```{r load_data, eval=FALSE, include=FALSE}
 StormEvents_2010 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2010_c20250520.csv")
 ```
 
-```{r filtering}
+```{r filtering_data}
 FiltStormEvents2010 <- StormEvents_2010|>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+write_rds(FiltStormEvents2010, file ='../data/StormEvents2010.csv')
+
+glimpse(FiltStormEvents2010)
 ```
 
-```{r write_file}
-write_rds(FiltStormEvents2010, file ='../data/Storms2010.csv')
-```
+```{r glimpse}
+Storms2010 <- read_csv("../data/Storms2010.csv")
 
+glimpse(Storms2010)
+```
 ## 3. Data analysis plan
 
 Text goes here.
