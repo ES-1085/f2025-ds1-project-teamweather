@@ -26,13 +26,13 @@ StormEvents_2010 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2010_
 FiltStormEvents2010 <- StormEvents_2010|>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
-write_rds(FiltStormEvents2010, file ='../data/StormEvents2010.csv')
+write_csv(FiltStormEvents2010, file ='../data/StormEvents2010.csv')
 
 glimpse(FiltStormEvents2010)
 ```
 
 ```{r glimpse}
-Storms2010 <- read_csv("../data/Storms2010.csv")
+StormEvents2010 <- read_csv('../data/StormEvents2010.csv')
 
 glimpse(Storms2010)
 ```
