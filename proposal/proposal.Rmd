@@ -18,7 +18,7 @@ Text goes here. Refer to the Markdown Quick Reference: Help -> Markdown Quick Re
 
 ## 2. Data
 
-```{r load_data, eval=FALSE, include=FALSE}
+```{r load_data}
 StormEvents_2010 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2010_c20250520.csv")
 ```
 
@@ -26,16 +26,22 @@ StormEvents_2010 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2010_
 FiltStormEvents2010 <- StormEvents_2010|>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
+FiltStormEvents2010 <- FiltStormEvents2010 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE)
+
+
 write_csv(FiltStormEvents2010, file ='../data/StormEvents2010.csv')
 
-glimpse(FiltStormEvents2010)
+#glimpse(FiltStormEvents2010)
 ```
 
 ```{r glimpse}
-StormEvents2010 <- read_csv('../data/StormEvents2010.csv')
+Storms2010 <- read_csv('../data/StormEvents2010.csv')
 
 glimpse(Storms2010)
 ```
+
+
 ## 3. Data analysis plan
 
 Text goes here.
