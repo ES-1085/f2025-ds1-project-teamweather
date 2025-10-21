@@ -19,84 +19,145 @@ Quick Reference.
 
 ## 2. Data
 
+Here, we filter out observations not needed, and remove unncessary
+columns.
+
 ``` r
 StormEvents_2010 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2010_c20250520.csv")
-```
-
-    ## Rows: 62807 Columns: 51
-    ## ── Column specification ────────────────────────────────────────────────────────
-    ## Delimiter: ","
-    ## chr (26): STATE, MONTH_NAME, EVENT_TYPE, CZ_TYPE, CZ_NAME, WFO, BEGIN_DATE_T...
-    ## dbl (24): BEGIN_YEARMONTH, BEGIN_DAY, BEGIN_TIME, END_YEARMONTH, END_DAY, EN...
-    ## lgl  (1): CATEGORY
-    ## 
-    ## ℹ Use `spec()` to retrieve the full column specification for this data.
-    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
 FiltStormEvents2010 <- StormEvents_2010|>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 FiltStormEvents2010 <- FiltStormEvents2010 |>
-  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE)
-
-
-write_csv(FiltStormEvents2010, file ='../data/StormEvents2010.csv')
-
-#glimpse(FiltStormEvents2010)
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2010)
 ```
 
 ``` r
-Storms2010 <- read_csv('../data/StormEvents2010.csv')
-```
+StormEvents_2011 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2011_c20250520.csv")
+FiltStormEvents2011 <- StormEvents_2011|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
-    ## Rows: 12154 Columns: 31
-    ## ── Column specification ────────────────────────────────────────────────────────
-    ## Delimiter: ","
-    ## chr (11): STATE, MONTH_NAME, EVENT_TYPE, WFO, BEGIN_DATE_TIME, CZ_TIMEZONE, ...
-    ## dbl (17): BEGIN_YEARMONTH, BEGIN_DAY, BEGIN_TIME, END_YEARMONTH, END_DAY, EN...
-    ## lgl  (3): MAGNITUDE, MAGNITUDE_TYPE, CATEGORY
-    ## 
-    ## ℹ Use `spec()` to retrieve the full column specification for this data.
-    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+FiltStormEvents2011 <- FiltStormEvents2011 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2011)
+```
 
 ``` r
-glimpse(Storms2010)
+StormEvents_2012 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2012_c20250520.csv")
+
+FiltStormEvents2012 <- StormEvents_2012|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2012 <- FiltStormEvents2012 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2012)
 ```
 
-    ## Rows: 12,154
-    ## Columns: 31
-    ## $ BEGIN_YEARMONTH   <dbl> 201001, 201003, 201010, 201010, 201010, 201010, 2010…
-    ## $ BEGIN_DAY         <dbl> 21, 11, 1, 1, 1, 1, 1, 3, 3, 12, 30, 1, 1, 3, 3, 3, …
-    ## $ BEGIN_TIME        <dbl> 300, 1816, 0, 0, 0, 0, 0, 1200, 1200, 1536, 46, 0, 0…
-    ## $ END_YEARMONTH     <dbl> 201001, 201003, 201010, 201010, 201010, 201010, 2010…
-    ## $ END_DAY           <dbl> 21, 16, 31, 31, 31, 31, 31, 4, 4, 12, 30, 31, 31, 4,…
-    ## $ END_TIME          <dbl> 600, 830, 2359, 2359, 2359, 2359, 2359, 1800, 1800, …
-    ## $ EPISODE_ID        <dbl> 36775, 36906, 45579, 45579, 45579, 45579, 45579, 444…
-    ## $ EVENT_ID          <dbl> 213816, 214762, 266281, 266283, 266284, 266285, 2662…
-    ## $ STATE             <chr> "FLORIDA", "IOWA", "INDIANA", "INDIANA", "INDIANA", …
-    ## $ YEAR              <dbl> 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2010…
-    ## $ MONTH_NAME        <chr> "January", "March", "October", "October", "October",…
-    ## $ EVENT_TYPE        <chr> "Flash Flood", "Flood", "Drought", "Drought", "Droug…
-    ## $ WFO               <chr> "MOB", "DMX", "IND", "IND", "IND", "IND", "IND", "IL…
-    ## $ BEGIN_DATE_TIME   <chr> "21-JAN-10 03:00:00", "11-MAR-10 18:16:00", "01-OCT-…
-    ## $ CZ_TIMEZONE       <chr> "CST-6", "CST-6", "EST-5", "EST-5", "EST-5", "EST-5"…
-    ## $ END_DATE_TIME     <chr> "21-JAN-10 06:00:00", "16-MAR-10 08:30:00", "31-OCT-…
-    ## $ INJURIES_DIRECT   <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-    ## $ INJURIES_INDIRECT <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-    ## $ DEATHS_DIRECT     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-    ## $ DEATHS_INDIRECT   <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-    ## $ DAMAGE_PROPERTY   <chr> "0.00K", "50.00K", NA, NA, NA, NA, NA, "0.00K", "0.0…
-    ## $ DAMAGE_CROPS      <chr> "0.00K", "0.00K", NA, NA, NA, NA, NA, "0.00K", "0.00…
-    ## $ SOURCE            <chr> "County Official", "Official NWS Observations", "Oth…
-    ## $ MAGNITUDE         <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-    ## $ MAGNITUDE_TYPE    <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-    ## $ FLOOD_CAUSE       <chr> "Heavy Rain", "Heavy Rain / Snow Melt", NA, NA, NA, …
-    ## $ CATEGORY          <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-    ## $ BEGIN_LAT         <dbl> 30.9958, 42.5589, NA, NA, NA, NA, NA, NA, NA, 39.310…
-    ## $ BEGIN_LON         <dbl> -87.2388, -92.5583, NA, NA, NA, NA, NA, NA, NA, -76.…
-    ## $ END_LAT           <dbl> 30.9901, 42.5886, NA, NA, NA, NA, NA, NA, NA, 39.316…
-    ## $ END_LON           <dbl> -87.2318, -92.7608, NA, NA, NA, NA, NA, NA, NA, -76.…
+``` r
+StormEvents_2013 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2013_c20250520.csv")
+
+FiltStormEvents2013 <- StormEvents_2013|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2013 <- FiltStormEvents2013 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2013)
+```
+
+``` r
+StormEvents_2014 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2014_c20250520.csv")
+
+FiltStormEvents2014 <- StormEvents_2014|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2014 <- FiltStormEvents2014 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2014)
+```
+
+``` r
+StormEvents_2015 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2015_c20250818.csv")
+
+FiltStormEvents2015 <- StormEvents_2015|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2015 <- FiltStormEvents2015 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2015)
+```
+
+``` r
+StormEvents_2016 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2016_c20250818.csv")
+
+FiltStormEvents2016 <- StormEvents_2016|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2016 <- FiltStormEvents2016 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2016)
+```
+
+``` r
+StormEvents_2017 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2017_c20250520.csv")
+
+FiltStormEvents2017 <- StormEvents_2017|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2017 <- FiltStormEvents2017 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2017)
+```
+
+``` r
+StormEvents_2018 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2018_c20250520.csv")
+
+FiltStormEvents2018 <- StormEvents_2018|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2018 <- FiltStormEvents2018 |>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2018)
+```
+
+``` r
+StormEvents_2019 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2019_c20250520.csv")
+
+FiltStormEvents2019 <- StormEvents_2019|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2019 <- FiltStormEvents2019|>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2019)
+```
+
+``` r
+StormEvents_2020 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2020_c20250702.csv")
+
+FiltStormEvents2020 <- StormEvents_2020|>
+  filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
+
+FiltStormEvents2020 <- FiltStormEvents2020|>
+  select(-STATE_FIPS,-CZ_TYPE,-CZ_FIPS,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
+glimpse(FiltStormEvents2020)
+```
+
+``` r
+storms <- rbind(FiltStormEvents2010,
+                FiltStormEvents2011,
+                FiltStormEvents2012,
+                FiltStormEvents2013,
+                FiltStormEvents2014,
+                FiltStormEvents2015,
+                FiltStormEvents2016,
+                FiltStormEvents2017,
+                FiltStormEvents2018,
+                FiltStormEvents2019,
+                FiltStormEvents2020)
+
+glimpse(storms)
+
+write_csv(storms, file="../data/storms.csv")
+```
 
 ## 3. Data analysis plan
 
