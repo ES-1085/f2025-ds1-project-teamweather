@@ -1,6 +1,6 @@
 ---
 title: "Project proposal"
-author: "Team name"
+author: "Team Weather"
 output: github_document
 ---
 
@@ -149,12 +149,14 @@ storms <- rbind(FiltStormEvents2010,
                 FiltStormEvents2018,
                 FiltStormEvents2019,
                 FiltStormEvents2020)
-
-glimpse(storms)
-
 write_csv(storms, file="../data/storms.csv")
 ```
-
+```{r glimpseStorms}
+# reload CSV becuase above chunks are eval=FALSE to avoid crashing Posit.
+storms <- read_csv("../data/storms.csv")
+glimpse(storms)
+```
+The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` columns.
 
 ## 3. Data analysis plan
 
