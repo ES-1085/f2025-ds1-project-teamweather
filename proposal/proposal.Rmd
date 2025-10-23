@@ -7,7 +7,7 @@ output: github_document
 ```{r load-packages, message = FALSE}
 library(tidyverse)
 library(broom)
-## Add any additional packages you are using here
+library(lubridate)
 ```
 
 ## 1. Introduction
@@ -166,9 +166,15 @@ storms <- storms|>
   )
 ```
 
+```{r}
+storms <- storms|>
+  mutate(BEGIN_DATE = as_date(BEGIN_DATE_TIME))
+```
+
+
+
 ```{r glimpse}
 glimpse(storms)
-
 ```
 
 The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` columns.
@@ -194,5 +200,16 @@ storms|>
   )
 ```
 
-
+```{r storm_by_type}
+storms|>
+  ggplot(aes(x=BEGIN_YEAR))+
+  geom_bar() +
+  facet_wrap(~EVENT_TYPE, ncol=4) +
+  labs(
+    title = "Total number of storm events per year",
+    subtitle = "From 2010-2020",
+    x = "Year",
+    y = "Count"
+  )
+```
 

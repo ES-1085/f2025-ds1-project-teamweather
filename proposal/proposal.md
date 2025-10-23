@@ -5,7 +5,7 @@ Team Weather
 ``` r
 library(tidyverse)
 library(broom)
-## Add any additional packages you are using here
+library(lubridate)
 ```
 
 ## 1. Introduction
@@ -182,11 +182,16 @@ storms <- storms|>
 ```
 
 ``` r
+storms <- storms|>
+  mutate(BEGIN_DATE = as_date(BEGIN_DATE_TIME))
+```
+
+``` r
 glimpse(storms)
 ```
 
     ## Rows: 143,621
-    ## Columns: 30
+    ## Columns: 31
     ## $ BEGIN_YEAR        <int> 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2010…
     ## $ BEGIN_MONTH       <int> 1, 3, 10, 10, 10, 10, 10, 8, 8, 7, 11, 10, 10, 8, 8,…
     ## $ BEGIN_DAY         <dbl> 21, 11, 1, 1, 1, 1, 1, 3, 3, 12, 30, 1, 1, 3, 3, 3, …
@@ -217,8 +222,9 @@ glimpse(storms)
     ## $ BEGIN_LON         <dbl> -87.2388, -92.5583, NA, NA, NA, NA, NA, NA, NA, -76.…
     ## $ END_LAT           <dbl> 30.9901, 42.5886, NA, NA, NA, NA, NA, NA, NA, 39.316…
     ## $ END_LON           <dbl> -87.2318, -92.7608, NA, NA, NA, NA, NA, NA, NA, -76.…
+    ## $ BEGIN_DATE        <date> 2021-01-10, 2011-03-10, 2001-10-10, 2001-10-10, 200…
 
-The combined storms dataset has 143621 rows and 30 columns.
+The combined storms dataset has 143621 rows and 31 columns.
 
 ## 3. Data analysis plan
 
@@ -245,3 +251,18 @@ storms|>
 ```
 
 ![](proposal_files/figure-gfm/total_storm_events-1.png)<!-- -->
+
+``` r
+storms|>
+  ggplot(aes(x=BEGIN_YEAR))+
+  geom_bar() +
+  facet_wrap(~EVENT_TYPE, ncol=4) +
+  labs(
+    title = "Total number of storm events per year",
+    subtitle = "From 2010-2020",
+    x = "Year",
+    y = "Count"
+  )
+```
+
+![](proposal_files/figure-gfm/storm_by_type-1.png)<!-- -->
