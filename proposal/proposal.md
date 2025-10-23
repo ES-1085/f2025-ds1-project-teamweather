@@ -157,7 +157,7 @@ write_csv(storms, file="../data/storms.csv")
 ```
 
 ``` r
-# reload CSV becuase above chunks are eval=FALSE to avoid crashing Posit.
+# reload CSV because above chunks are eval=FALSE to avoid crashing Posit.
 storms <- read_csv("../data/storms.csv")
 ```
 
@@ -172,12 +172,23 @@ storms <- read_csv("../data/storms.csv")
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
+storms <- storms|>
+  separate(
+    col = BEGIN_YEARMONTH,
+    into = c("BEGIN_YEAR", "BEGIN_MONTH"),
+    sep = 4,
+    convert = TRUE
+  )
+```
+
+``` r
 glimpse(storms)
 ```
 
     ## Rows: 143,621
-    ## Columns: 29
-    ## $ BEGIN_YEARMONTH   <dbl> 201001, 201003, 201010, 201010, 201010, 201010, 2010…
+    ## Columns: 30
+    ## $ BEGIN_YEAR        <int> 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2010…
+    ## $ BEGIN_MONTH       <int> 1, 3, 10, 10, 10, 10, 10, 8, 8, 7, 11, 10, 10, 8, 8,…
     ## $ BEGIN_DAY         <dbl> 21, 11, 1, 1, 1, 1, 1, 3, 3, 12, 30, 1, 1, 3, 3, 3, …
     ## $ BEGIN_TIME        <dbl> 300, 1816, 0, 0, 0, 0, 0, 1200, 1200, 1536, 46, 0, 0…
     ## $ END_YEARMONTH     <dbl> 201001, 201003, 201010, 201010, 201010, 201010, 2010…
@@ -207,7 +218,7 @@ glimpse(storms)
     ## $ END_LAT           <dbl> 30.9901, 42.5886, NA, NA, NA, NA, NA, NA, NA, 39.316…
     ## $ END_LON           <dbl> -87.2318, -92.7608, NA, NA, NA, NA, NA, NA, NA, -76.…
 
-The combined storms dataset has 143621\` rows and 29 columns.
+The combined storms dataset has 143621 rows and 30 columns.
 
 ## 3. Data analysis plan
 
@@ -221,7 +232,16 @@ visualization(s) that you believe will be useful in exploring your
 question(s). (You can update these later as you work on your project.)
 
 ``` r
-# Code goes here
-# Code to calculate summary statistics
-# Code for a visualization
+storms|>
+  ggplot(aes(x=BEGIN_YEAR, fill=EVENT_TYPE))+
+  geom_bar() +
+  labs(
+    title = "Total number of storm events per year",
+    subtitle = "From 2010-2020",
+    x = "Year",
+    y = "Count",
+    fill = "Storm type"
+  )
 ```
+
+![](proposal_files/figure-gfm/total_storm_events-1.png)<!-- -->

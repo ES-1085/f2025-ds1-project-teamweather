@@ -151,11 +151,26 @@ storms <- rbind(FiltStormEvents2010,
                 FiltStormEvents2020)
 write_csv(storms, file="../data/storms.csv")
 ```
-```{r glimpseStorms}
-# reload CSV becuase above chunks are eval=FALSE to avoid crashing Posit.
+```{r loadCSV}
+# reload CSV because above chunks are eval=FALSE to avoid crashing Posit.
 storms <- read_csv("../data/storms.csv")
-glimpse(storms)
 ```
+
+```{r data_cleanup}
+storms <- storms|>
+  separate(
+    col = BEGIN_YEARMONTH,
+    into = c("BEGIN_YEAR", "BEGIN_MONTH"),
+    sep = 4,
+    convert = TRUE
+  )
+```
+
+```{r glimpse}
+glimpse(storms)
+
+```
+
 The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` columns.
 
 ## 3. Data analysis plan
@@ -166,9 +181,18 @@ Text goes here.
 - Very preliminary exploratory data analysis, including some summary statistics and visualizations, along with some explanation on how they help you learn more about your data. (You can add to these later as you work on your project.)
 - The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
 
-
-```{r}
-# Code goes here
-# Code to calculate summary statistics
-# Code for a visualization
+```{r total_storm_events}
+storms|>
+  ggplot(aes(x=BEGIN_YEAR, fill=EVENT_TYPE))+
+  geom_bar() +
+  labs(
+    title = "Total number of storm events per year",
+    subtitle = "From 2010-2020",
+    x = "Year",
+    y = "Count",
+    fill = "Storm type"
+  )
 ```
+
+
+
