@@ -156,6 +156,29 @@ write_csv(storms, file="../data/storms.csv")
 storms <- read_csv("../data/storms.csv")
 ```
 
+The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` columns.
+
+## 3. Data analysis plan
+
+Text goes here.
+- What variables will you visualize to explore your research questions?
+
+
+
+- Will there be any other data that you need to find to help with your research question?
+
+
+
+- Very preliminary exploratory data analysis, including some summary statistics and visualizations, along with some explanation on how they help you learn more about your data. (You can add to these later as you work on your project.)
+
+
+- The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
+
+
+
+### Preliminary visualization examples + summary statistics
+
+Data Cleaning
 ```{r data_cleanup}
 storms <- storms|>
   separate(
@@ -166,26 +189,16 @@ storms <- storms|>
   )
 ```
 
-```{r}
+```{r change_date_format}
 storms <- storms|>
   mutate(BEGIN_DATE = as_date(BEGIN_DATE_TIME))
 ```
-
-
 
 ```{r glimpse}
 glimpse(storms)
 ```
 
-The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` columns.
-
-## 3. Data analysis plan
-
-Text goes here.
-- What variables will you visualize to explore your research questions?
-- Will there be any other data that you need to find to help with your research question?
-- Very preliminary exploratory data analysis, including some summary statistics and visualizations, along with some explanation on how they help you learn more about your data. (You can add to these later as you work on your project.)
-- The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
+Visualizations
 
 ```{r total_storm_events}
 storms|>

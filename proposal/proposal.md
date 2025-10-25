@@ -171,6 +171,29 @@ storms <- read_csv("../data/storms.csv")
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
+The combined storms dataset has 143621 rows and 29 columns.
+
+## 3. Data analysis plan
+
+Text goes here. - What variables will you visualize to explore your
+research questions?
+
+- Will there be any other data that you need to find to help with your
+  research question?
+
+- Very preliminary exploratory data analysis, including some summary
+  statistics and visualizations, along with some explanation on how they
+  help you learn more about your data. (You can add to these later as
+  you work on your project.)
+
+- The data visualization(s) that you believe will be useful in exploring
+  your question(s). (You can update these later as you work on your
+  project.)
+
+### Preliminary visualization examples + summary statistics
+
+\####Data Cleaning
+
 ``` r
 storms <- storms|>
   separate(
@@ -224,18 +247,7 @@ glimpse(storms)
     ## $ END_LON           <dbl> -87.2318, -92.7608, NA, NA, NA, NA, NA, NA, NA, -76.…
     ## $ BEGIN_DATE        <date> 2021-01-10, 2011-03-10, 2001-10-10, 2001-10-10, 200…
 
-The combined storms dataset has 143621 rows and 31 columns.
-
-## 3. Data analysis plan
-
-Text goes here. - What variables will you visualize to explore your
-research questions? - Will there be any other data that you need to find
-to help with your research question? - Very preliminary exploratory data
-analysis, including some summary statistics and visualizations, along
-with some explanation on how they help you learn more about your data.
-(You can add to these later as you work on your project.) - The data
-visualization(s) that you believe will be useful in exploring your
-question(s). (You can update these later as you work on your project.)
+\####Visualizations
 
 ``` r
 storms|>
