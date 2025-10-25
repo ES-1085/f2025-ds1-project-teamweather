@@ -170,15 +170,20 @@ storms <- read_csv("../data/storms.csv")
 The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` columns.
 
 ## 3. Data analysis plan
+The variables we will be visualizing to explore our research questions include:
+1. `BEGIN_YEAR` and `EVENT_TYPE` — to examine whether the total number of storm events has increased from 2010 to 2020. Other type of events are also in consider.
+2. `STATE` and `EVENT_TYPE` — to identify the differences in storm frequency or type distribution over time across states.
+3. `BEGIN_YEAR` and `DAMAGE_PROPERTY` — to indicate the severity or financial impact events has evolved.
 
-Text goes here.
-- What variables will you visualize to explore your research questions?
+Other data needed:
+- Regional climate for exploring correlation with event frequency.
 
-- Will there be any other data that you need to find to help with your research question?
+Types of graphs we may want to use: 
+- Stacked bar charts – to show the distribution of `EVENT_TYPE` by `BEGIN_YEAR`.
+- Facet plots – to visualize trends of each event type seperately.
+- Boxplots – to compare the distributions of `DAMAGE_PROPERTY` and `INJURIES_DIRECT` by event type.
+- Scatterplots with trend lines – to show relationships between year and severity.
 
-- Very preliminary exploratory data analysis, including some summary statistics and visualizations, along with some explanation on how they help you learn more about your data. (You can add to these later as you work on your project.)
-
-- The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
 
 ### Preliminary visualization examples + summary statistics
 
@@ -198,41 +203,15 @@ storms <- storms|>
   mutate(BEGIN_DATE = as_date(BEGIN_DATE_TIME))
 ```
 
-<<<<<<< HEAD
-=======
 ```{r dimensions}
 dim(storms)
 ```
 The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` columns.
 
-
->>>>>>> 9440c8966517093217c33e3e5ffd772d96819ec5
 ```{r glimpse}
 glimpse(storms)
 ```
 
-<<<<<<< HEAD
-Visualizations
-=======
-
-
-## 3. Data analysis plan
-
-The variables we will be visualizing to explore our research questions include:
-1. `BEGIN_YEAR` and `EVENT_TYPE` — to examine whether the total number of storm events has increased from 2010 to 2020. Other type of events are also in consider.
-2. `STATE` and `EVENT_TYPE` — to identify the differences in storm frequency or type distribution over time across states.
-3. `BEGIN_YEAR` and `DAMAGE_PROPERTY` — to indicate the severity or financial impact events has evolved.
-
-Other data needed:
-- Regional climate for exploring correlation with event frequency.
-
-Types of graphs we may want to use: 
-- Stacked bar charts – to show the distribution of `EVENT_TYPE` by `BEGIN_YEAR`.
-- Facet plots – to visualize trends of each event type seperately.
-- Boxplots – to compare the distributions of `DAMAGE_PROPERTY` and `INJURIES_DIRECT` by event type.
-- Scatterplots with trend lines – to show relationships between year and severity.
-
->>>>>>> 9440c8966517093217c33e3e5ffd772d96819ec5
 
 ```{r total_storm_events}
 storms|>

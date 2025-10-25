@@ -1,6 +1,6 @@
 Project proposal
 ================
-Team Weather
+Team Weather- Colin, Kailor & Jennifer
 
 ``` r
 library(tidyverse)
@@ -10,17 +10,33 @@ library(lubridate)
 
 ## 1. Introduction
 
-The introduction should introduce your general research question(s) and your data (where it came from, how it was collected, what are the cases, what are the variables, etc.).
+The introduction should introduce your general research question(s) and
+your data (where it came from, how it was collected, what are the cases,
+what are the variables, etc.).
 
-Our general research question is: Has the number of extreme weather events in the U.S. increased from 2010-2020?
+Our general research question is: Has the number of extreme weather
+events in the U.S. increased from 2010-2020?
 
-We will achieve this by simply focusing on whether the quantity of extreme weather events in general has increased or if certain types of extreme weather events have increased or decreased over the decade. We can also focus on severity and if the severity of each extreme weather event has on average increased or decreased. 
+We will achieve this by simply focusing on whether the quantity of
+extreme weather events in general has increased or if certain types of
+extreme weather events have increased or decreased over the decade. We
+can also focus on severity and if the severity of each extreme weather
+event has on average increased or decreased.
 
-Our data comes from NOAA (National Oceanic and Atmospheric Administration) and is collected by various sources such as, trained spotters, social media, 911 call centers, fire departments, law enforcement, NWS (National weather service) employees, Newspapers, and public reports. 
+Our data comes from NOAA (National Oceanic and Atmospheric
+Administration) and is collected by various sources such as, trained
+spotters, social media, 911 call centers, fire departments, law
+enforcement, NWS (National weather service) employees, Newspapers, and
+public reports.
 
-extreme weather examples: ("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"
+extreme weather examples:
+(“Avalanche”,“Blizzard”,“Drought”,“Flood”,“Flash Flood”,“Excessive
+Heat”,“Tornado”,“Tropical Storm”,“Tsunami”,“Wildfire”
 
 A full breakdown of each column is in the codebook, data/readme.md
+
+Refer to the Markdown Quick Reference: Help -\> Markdown Quick
+Reference.
 
 ## 2. Data
 
@@ -180,24 +196,27 @@ The combined storms dataset has 143621 rows and 29 columns.
 
 ## 3. Data analysis plan
 
-Text goes here. - What variables will you visualize to explore your
-research questions?
+The variables we will be visualizing to explore our research questions
+include: 1. `BEGIN_YEAR` and `EVENT_TYPE` — to examine whether the total
+number of storm events has increased from 2010 to 2020. Other type of
+events are also in consider. 2. `STATE` and `EVENT_TYPE` — to identify
+the differences in storm frequency or type distribution over time across
+states. 3. `BEGIN_YEAR` and `DAMAGE_PROPERTY` — to indicate the severity
+or financial impact events has evolved.
 
-- Will there be any other data that you need to find to help with your
-  research question?
+Other data needed: - Regional climate for exploring correlation with
+event frequency.
 
-- Very preliminary exploratory data analysis, including some summary
-  statistics and visualizations, along with some explanation on how they
-  help you learn more about your data. (You can add to these later as
-  you work on your project.)
-
-- The data visualization(s) that you believe will be useful in exploring
-  your question(s). (You can update these later as you work on your
-  project.)
+Types of graphs we may want to use: - Stacked bar charts – to show the
+distribution of `EVENT_TYPE` by `BEGIN_YEAR`. - Facet plots – to
+visualize trends of each event type seperately. - Boxplots – to compare
+the distributions of `DAMAGE_PROPERTY` and `INJURIES_DIRECT` by event
+type. - Scatterplots with trend lines – to show relationships between
+year and severity.
 
 ### Preliminary visualization examples + summary statistics
 
-\####Data Cleaning
+Data Cleaning
 
 ``` r
 storms <- storms|>
@@ -213,6 +232,14 @@ storms <- storms|>
 storms <- storms|>
   mutate(BEGIN_DATE = as_date(BEGIN_DATE_TIME))
 ```
+
+``` r
+dim(storms)
+```
+
+    ## [1] 143621     31
+
+The combined storms dataset has 143621 rows and 31 columns.
 
 ``` r
 glimpse(storms)
@@ -251,8 +278,6 @@ glimpse(storms)
     ## $ END_LAT           <dbl> 30.9901, 42.5886, NA, NA, NA, NA, NA, NA, NA, 39.316…
     ## $ END_LON           <dbl> -87.2318, -92.7608, NA, NA, NA, NA, NA, NA, NA, -76.…
     ## $ BEGIN_DATE        <date> 2021-01-10, 2011-03-10, 2001-10-10, 2001-10-10, 200…
-
-\####Visualizations
 
 ``` r
 storms|>
