@@ -1,6 +1,6 @@
 ---
 title: "Project proposal"
-author: "Team Weather"
+author: "Team Weather- Colin, Kailor & Jennifer"
 output: github_document
 ---
 
@@ -14,7 +14,18 @@ library(lubridate)
 
 The introduction should introduce your general research question(s) and your data (where it came from, how it was collected, what are the cases, what are the variables, etc.).
 
-Text goes here. Refer to the Markdown Quick Reference: Help -> Markdown Quick Reference. 
+Our general research question is: Has the number of extreme weather events in the U.S. increased from 2010-2020?
+
+We will achieve this by simply focusing on whether the quantity of extreme weather events in general has increased or if certain types of extreme weather events have increased or decreased over the decade. We can also focus on severity and if the severity of each extreme weather event has on average increased or decreased. 
+
+Our data comes from NOAA (National Oceanic and Atmospheric Administration) and is collected by various sources such as, trained spotters, social media, 911 call centers, fire departments, law enforcement, NWS (National weather service) employees, Newspapers, and public reports. 
+
+extreme weather examples: ("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"
+
+A full breakdown of each column is in the codebook, data/readme.md
+
+Refer to the Markdown Quick Reference: Help -> Markdown Quick Reference. 
+
 
 ## 2. Data
 Here, we filter out observations not needed, and remove unncessary columns.
@@ -163,18 +174,11 @@ The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` colum
 Text goes here.
 - What variables will you visualize to explore your research questions?
 
-
-
 - Will there be any other data that you need to find to help with your research question?
-
-
 
 - Very preliminary exploratory data analysis, including some summary statistics and visualizations, along with some explanation on how they help you learn more about your data. (You can add to these later as you work on your project.)
 
-
 - The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
-
-
 
 ### Preliminary visualization examples + summary statistics
 
@@ -194,11 +198,41 @@ storms <- storms|>
   mutate(BEGIN_DATE = as_date(BEGIN_DATE_TIME))
 ```
 
+<<<<<<< HEAD
+=======
+```{r dimensions}
+dim(storms)
+```
+The combined storms dataset has `r nrow(storms)` rows and `r ncol(storms)` columns.
+
+
+>>>>>>> 9440c8966517093217c33e3e5ffd772d96819ec5
 ```{r glimpse}
 glimpse(storms)
 ```
 
+<<<<<<< HEAD
 Visualizations
+=======
+
+
+## 3. Data analysis plan
+
+The variables we will be visualizing to explore our research questions include:
+1. `BEGIN_YEAR` and `EVENT_TYPE` — to examine whether the total number of storm events has increased from 2010 to 2020. Other type of events are also in consider.
+2. `STATE` and `EVENT_TYPE` — to identify the differences in storm frequency or type distribution over time across states.
+3. `BEGIN_YEAR` and `DAMAGE_PROPERTY` — to indicate the severity or financial impact events has evolved.
+
+Other data needed:
+- Regional climate for exploring correlation with event frequency.
+
+Types of graphs we may want to use: 
+- Stacked bar charts – to show the distribution of `EVENT_TYPE` by `BEGIN_YEAR`.
+- Facet plots – to visualize trends of each event type seperately.
+- Boxplots – to compare the distributions of `DAMAGE_PROPERTY` and `INJURIES_DIRECT` by event type.
+- Scatterplots with trend lines – to show relationships between year and severity.
+
+>>>>>>> 9440c8966517093217c33e3e5ffd772d96819ec5
 
 ```{r total_storm_events}
 storms|>

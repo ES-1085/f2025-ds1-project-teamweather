@@ -10,12 +10,17 @@ library(lubridate)
 
 ## 1. Introduction
 
-The introduction should introduce your general research question(s) and
-your data (where it came from, how it was collected, what are the cases,
-what are the variables, etc.).
+The introduction should introduce your general research question(s) and your data (where it came from, how it was collected, what are the cases, what are the variables, etc.).
 
-Text goes here. Refer to the Markdown Quick Reference: Help -\> Markdown
-Quick Reference.
+Our general research question is: Has the number of extreme weather events in the U.S. increased from 2010-2020?
+
+We will achieve this by simply focusing on whether the quantity of extreme weather events in general has increased or if certain types of extreme weather events have increased or decreased over the decade. We can also focus on severity and if the severity of each extreme weather event has on average increased or decreased. 
+
+Our data comes from NOAA (National Oceanic and Atmospheric Administration) and is collected by various sources such as, trained spotters, social media, 911 call centers, fire departments, law enforcement, NWS (National weather service) employees, Newspapers, and public reports. 
+
+extreme weather examples: ("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"
+
+A full breakdown of each column is in the codebook, data/readme.md
 
 ## 2. Data
 
