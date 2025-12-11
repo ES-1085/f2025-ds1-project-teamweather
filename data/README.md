@@ -2,7 +2,7 @@
 
 Below is our codebook for the data. Due to the size of our data file, it has not been uploaded to github. It is available at [https://www.ncei.noaa.gov/stormevents/]
 
-## name of data file
+## StormEvents-details
 
 - `BEGIN_YEARMONTH`: Year and month when the event began (YYYYMM).
 - `BEGIN_DAY`: Calendar day when the event began.
