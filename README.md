@@ -31,7 +31,7 @@ Across 2010–2020, extreme weather events became more frequent, but severity di
 
 ## Handout
 
-Our handout can be found [here](handout/handout.pdf). You can update the filename and extension of your handout, currently it is called handout.pdf
+Our handout can be found [here](handout/handout.pdf). 
 
 ## Memo
 
