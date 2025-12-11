@@ -1,9 +1,6 @@
 # data
 
-Place data file(s) in this folder. Add the dimensions (rows and columns).
-
-Then, include codebooks (variables, and their descriptions) for your data file(s)
-using the following format.
+Below is our codebook for the data. Due to the size of our data file, it has not been uploaded to github. It is available at [https://www.ncei.noaa.gov/stormevents/]
 
 ## name of data file
 
