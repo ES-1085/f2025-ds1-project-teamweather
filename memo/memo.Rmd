@@ -25,7 +25,7 @@ Our data came split into separate files by year. Here, we read each of these fil
 
 ```{r 2010, eval=FALSE}
 StormEvents_2010 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2010_c20250520.csv")
-StormEvents_2010 <- StormEvents_2010|>
+StormEvents_2010 <- StormEvents_2010 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2010 <- StormEvents_2010 |>
@@ -34,7 +34,7 @@ StormEvents_2010 <- StormEvents_2010 |>
 
 ```{r 2011, eval=FALSE}
 StormEvents_2011 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2011_c20250520.csv")
-StormEvents_2011 <- StormEvents_2011|>
+StormEvents_2011 <- StormEvents_2011 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2011 <- StormEvents_2011 |>
@@ -44,7 +44,7 @@ StormEvents_2011 <- StormEvents_2011 |>
 ```{r 2012, eval=FALSE}
 StormEvents_2012 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2012_c20250520.csv")
 
-StormEvents_2012 <- StormEvents_2012|>
+StormEvents_2012 <- StormEvents_2012 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2012 <- StormEvents_2012 |>
@@ -54,7 +54,7 @@ StormEvents_2012 <- StormEvents_2012 |>
 ```{r 2013, eval=FALSE}
 StormEvents_2013 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2013_c20250520.csv")
 
-StormEvents_2013 <- StormEvents_2013|>
+StormEvents_2013 <- StormEvents_2013 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2013 <- StormEvents_2013 |>
@@ -64,7 +64,7 @@ StormEvents_2013 <- StormEvents_2013 |>
 ```{r 2014, eval=FALSE}
 StormEvents_2014 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2014_c20250520.csv")
 
-StormEvents_2014 <- StormEvents_2014|>
+StormEvents_2014 <- StormEvents_2014 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2014 <- StormEvents_2014 |>
@@ -74,7 +74,7 @@ StormEvents_2014 <- StormEvents_2014 |>
 ```{r 2015, eval=FALSE}
 StormEvents_2015 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2015_c20250818.csv")
 
-StormEvents_2015 <- StormEvents_2015|>
+StormEvents_2015 <- StormEvents_2015 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2015 <- StormEvents_2015 |>
@@ -84,7 +84,7 @@ StormEvents_2015 <- StormEvents_2015 |>
 ```{r 2016, eval=FALSE}
 StormEvents_2016 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2016_c20250818.csv")
 
-StormEvents_2016 <- StormEvents_2016|>
+StormEvents_2016 <- StormEvents_2016 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2016 <- StormEvents_2016 |>
@@ -94,7 +94,7 @@ StormEvents_2016 <- StormEvents_2016 |>
 ```{r 2017, eval=FALSE}
 StormEvents_2017 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2017_c20250520.csv")
 
-StormEvents_2017 <- StormEvents_2017|>
+StormEvents_2017 <- StormEvents_2017 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2017 <- StormEvents_2017 |>
@@ -104,7 +104,7 @@ StormEvents_2017 <- StormEvents_2017 |>
 ```{r 2018, eval=FALSE}
 StormEvents_2018 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2018_c20250520.csv")
 
-StormEvents_2018 <- StormEvents_2018|>
+StormEvents_2018 <- StormEvents_2018 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
 StormEvents_2018 <- StormEvents_2018 |>
@@ -114,20 +114,20 @@ StormEvents_2018 <- StormEvents_2018 |>
 ```{r 2019, eval=FALSE}
 StormEvents_2019 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2019_c20250520.csv")
 
-StormEvents_2019 <- StormEvents_2019|>
+StormEvents_2019 <- StormEvents_2019 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
-StormEvents_2019 <- StormEvents_2019|>
+StormEvents_2019 <- StormEvents_2019 |>
   select(-CZ_TYPE,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
 ```
 
 ```{r 2020, eval=FALSE}
 StormEvents_2020 <- read_csv("../data/ignore/StormEvents_details-ftp_v1.0_d2020_c20250702.csv")
 
-StormEvents_2020 <- StormEvents_2020|>
+StormEvents_2020 <- StormEvents_2020 |>
   filter(EVENT_TYPE %in% c("Avalanche","Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Tsunami","Wildfire"))
 
-StormEvents_2020 <- StormEvents_2020|>
+StormEvents_2020 <- StormEvents_2020 |>
   select(-CZ_TYPE,-CZ_NAME,-TOR_F_SCALE, -TOR_LENGTH,-TOR_WIDTH,-TOR_OTHER_WFO,-TOR_OTHER_CZ_STATE,-TOR_OTHER_CZ_FIPS,-TOR_OTHER_CZ_NAME,-BEGIN_RANGE,-BEGIN_AZIMUTH,-BEGIN_LOCATION,-END_RANGE,-END_AZIMUTH,-END_LOCATION,-EPISODE_NARRATIVE,-EVENT_NARRATIVE,-DATA_SOURCE,-WFO,-YEAR)
 ```
 
@@ -161,7 +161,7 @@ storms <- read_csv("../data/storms2.csv")
 To put the dates in a more usable format, we split up the format from year month into two columns, year and month.
 
 ```{r split_yearmonth}
-storms <- storms|>
+storms <- storms |>
   separate(
     col = BEGIN_YEARMONTH,
     into = c("BEGIN_YEAR", "BEGIN_MONTH"),
@@ -173,7 +173,7 @@ storms <- storms|>
 We also change the date format into one that can be graphed with ggplot without any gaps.
 
 ```{r change_date_format}
-storms <- storms|>
+storms <- storms |>
   mutate(BEGIN_DATE = as_date(BEGIN_DATE_TIME))
 ```
 
@@ -182,14 +182,14 @@ storms <- storms|>
 
 ### Plot 1: Frequency of storms by year
 
-First, we wanted to see if there was any trend in the number of extreme weather events by year, so we created a line plot from 2010 - 2020. There were no strong trend - the number of storms did not increase in any consistant way in this range.
+First, we wanted to see if there was any trend in the number of extreme weather events by year, so we created a line plot from 2010 - 2020. There were no strong trend - the number of storms did not increase in any consistent way in this range.
 
 #### Data cleanup steps specific to plot 1
 
 We create a new dataframe for this plot, and count the number of storms per year.
 
 ```{r storms_by_year_cleaning}
-storms_by_year <- storms|>
+storms_by_year <- storms |>
   count(BEGIN_YEAR, name = "n_events")
 
 ```
@@ -206,7 +206,7 @@ ggplot(storms_by_year, aes(x = BEGIN_YEAR, y = n_events)) +
     x = "Year",
     y = "Number of Events"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   scale_x_continuous(breaks = c(2010,2012,2014,2016,2018,2020))
 ```
 
@@ -219,13 +219,13 @@ Since there was no strong trend in the total number of storms, next we wanted to
 First, we sum the indirect and direct injuries and deaths into one column, casualties, and merge that data frame with the storms by year dataset.
 
 ```{r storms_and_injuries_cleaning}
-storms_by_year <- storms %>%
+storms_by_year <- storms |>
   count(BEGIN_YEAR, name = "n_events")
 
 storm_casualties <- storms |> 
-  rowwise(EVENT_ID)|>
-  mutate(CASUALTIES = sum(c(INJURIES_DIRECT, INJURIES_INDIRECT, DEATHS_DIRECT, DEATHS_INDIRECT)))|>
-  group_by(BEGIN_YEAR)|>
+  rowwise(EVENT_ID) |>
+  mutate(CASUALTIES = sum(c(INJURIES_DIRECT, INJURIES_INDIRECT, DEATHS_DIRECT, DEATHS_INDIRECT))) |>
+  group_by(BEGIN_YEAR) |>
   summarise(casualties_year = sum(CASUALTIES))
 ```
 
@@ -240,16 +240,16 @@ To add in the total damage cost, we must reformat the way the cost is written. I
 #Replace NA with 0
 storm_damages <- storms |>
   mutate(
+    #convert crops damage
     CROPS_NUM = case_when(
       grepl("B", DAMAGE_CROPS, ignore.case = TRUE) ~ as.numeric(gsub("[B]", "", DAMAGE_CROPS, ignore.case = TRUE)) * 1e9 / 1e7,
       grepl("M", DAMAGE_CROPS, ignore.case = TRUE) ~ as.numeric(gsub("[M]", "", DAMAGE_CROPS, ignore.case = TRUE)) * 1e6 / 1e7,
       grepl("K", DAMAGE_CROPS, ignore.case = TRUE) ~ as.numeric(gsub("[K]", "", DAMAGE_CROPS, ignore.case = TRUE)) * 1e3) / 1e7,
-    
-    # 2. Convert Property Damage (PROP_NUM)
+    #convert property damage
     PROP_NUM = case_when(
       grepl("B", DAMAGE_PROPERTY, ignore.case = TRUE) ~ as.numeric(gsub("[B]", "", DAMAGE_PROPERTY, ignore.case = TRUE)) * 1e9 / 1e7,
       grepl("M", DAMAGE_PROPERTY, ignore.case = TRUE) ~ as.numeric(gsub("[M]", "", DAMAGE_PROPERTY, ignore.case = TRUE)) * 1e6 / 1e7,
-      grepl("K", DAMAGE_PROPERTY, ignore.case = TRUE) ~ as.numeric(gsub("[K]", "", DAMAGE_PROPERTY, ignore.case = TRUE)) * 1e3 / 1e7))|>
+      grepl("K", DAMAGE_PROPERTY, ignore.case = TRUE) ~ as.numeric(gsub("[K]", "", DAMAGE_PROPERTY, ignore.case = TRUE)) * 1e3 / 1e7)) |>
   
 select(BEGIN_YEAR, CROPS_NUM, PROP_NUM, DAMAGE_PROPERTY, DAMAGE_CROPS, EVENT_ID)
 
@@ -259,10 +259,10 @@ storm_damages$CROPS_NUM[is.na(storm_damages$CROPS_NUM)] <- 0
 
 ```{r total_damage_sum}
 #Find total damage cost per year
-storm_damages <- storm_damages|>
-  rowwise(EVENT_ID)|>
-  mutate(DAMAGES = sum(c(PROP_NUM, CROPS_NUM)))|>
-  group_by(BEGIN_YEAR)|>
+storm_damages <- storm_damages |>
+  rowwise(EVENT_ID) |>
+  mutate(DAMAGES = sum(c(PROP_NUM, CROPS_NUM))) |>
+  group_by(BEGIN_YEAR) |>
   summarise(damage_year = sum(DAMAGES))
 
 casualties_storms <- left_join(casualties_storms, storm_damages)
@@ -275,11 +275,11 @@ casualties_storms <- left_join(casualties_storms, storm_damages)
 
 ggplot(casualties_storms, aes(BEGIN_YEAR)) +
   geom_line(aes(y = n_events, color = "orange")) +
-  geom_line(aes(y = casualties_year, color = "red"))+
-  geom_line(aes(y = damage_year, color = "green"))+
+  geom_line(aes(y = casualties_year, color = "red")) +
+  geom_line(aes(y = damage_year, color = "green")) +
   geom_point(aes(y = n_events, color = "orange")) +
-  geom_point(aes(y = casualties_year, color = "red"))+
-  geom_point(aes(y = damage_year, color = "green"))+
+  geom_point(aes(y = casualties_year, color = "red")) +
+  geom_point(aes(y = damage_year, color = "green")) +
   labs(
     title = "Frequency of extreme weather events, cost, and injuries (2010–2020)",
     subtitle = "Filtered to major natural disasters",
@@ -287,12 +287,12 @@ ggplot(casualties_storms, aes(BEGIN_YEAR)) +
     y = "Frequency",
     color = ""
   ) +
-  theme_minimal()+
+  theme_minimal() +
   scale_color_manual(
     values = c("orange" = "#1f66e5", "red" = "black", "green" = "#00cd00"),
     labels = c("orange" = "# of storms",
                "red" = "Injures + Fatalities",
-               "green" = "Damages (in $10M)"))+
+               "green" = "Damages (in $10M)")) +
   scale_x_continuous(breaks = c(2010,2012,2014,2016,2018,2020))
 ```
 
@@ -307,7 +307,7 @@ Here, we count the total number of events of each storm type, then plot the grap
 
 ```{r filter_by_type_plot}
 storms_by_type_year <- storms |>
-  count(BEGIN_YEAR, EVENT_TYPE, name = "n_events")|>
+  count(BEGIN_YEAR, EVENT_TYPE, name = "n_events") |>
   filter(EVENT_TYPE %in% c("Blizzard","Drought","Flood","Flash Flood","Excessive Heat","Tornado","Tropical Storm","Wildfire"))
 ```
 
@@ -315,20 +315,18 @@ storms_by_type_year <- storms |>
 
 ```{r storm_type, fig.alt = "A time-series chart with multiple lines showing annual trends in extreme weather events from 2010 to 2020. The x-axis shows year, and the y-axis shows counts or scaled values. Below the line graph is colored indicating how much of each weather event occured over each year. Droughts and Flash Floods occure the most with wildfires and tropical storms taking up the least."}
 ggplot(storms_by_type_year,
-aes(x = BEGIN_YEAR,
-y = n_events,
-fill = EVENT_TYPE)) +
-geom_area(alpha = 0.8, position = "stack") +
-labs(
-title = "Extreme Weather Events by Storm Type (2010–2020)",
-subtitle = "Stacked area shows how different storm types contribute to total events",
-x = "Year",
-y = "Number of Events",
-fill = "Storm type"
-) +
-theme_minimal() +
-scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018, 2020)) +
-scale_fill_brewer(palette = "Set2")
+  aes(x = BEGIN_YEAR, y = n_events, fill = EVENT_TYPE)) +
+  geom_area(alpha = 0.8, position = "stack") +
+  labs(
+    title = "Extreme Weather Events by Storm Type (2010–2020)",
+    subtitle = "Stacked area shows how different storm types contribute to total events",
+    x = "Year",
+    y = "Number of Events",
+    fill = "Storm type"
+  ) +
+  theme_minimal() +
+  scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018, 2020)) +
+  scale_fill_brewer(palette = "Set2")
 
 ```
 
@@ -339,12 +337,12 @@ From the previous plot, we noticed there were very consistent number of tornadoe
 #### Plot 4
 
 ```{r leaflet_interactive, fig.alt= "An interactive map showing the number of tornadoes in the United States. Tornadoes occur across the entire country, including Hawaii and Puerto Rico, but are most common in the midwest and deep south."}
-map_storms <- storms|>
-  filter(EVENT_TYPE %in% c("Tornado"))|>
+map_storms <- storms |>
+  filter(EVENT_TYPE %in% c("Tornado")) |>
   mutate(id = seq_len(n()))
 
-leaflet(map_storms) %>%
-  addProviderTiles(provider = providers$OpenStreetMap) %>%
+leaflet(map_storms) |>
+  addProviderTiles(provider = providers$OpenStreetMap) |>
   addCircleMarkers(lng = ~BEGIN_LON, 
                   lat = ~BEGIN_LAT, 
                   popup = ~EVENT_TYPE,
@@ -365,11 +363,11 @@ First, we filter to just tornado, then filter to only include the relevant colum
 
 ```{r just_long_and_lat}
 #Take storms, make just tornadoes, create GEOID from FIPS
-T_coords <- storms|>
-  filter(EVENT_TYPE == "Tornado")|>
-  select(BEGIN_LAT, BEGIN_LON, STATE, STATE_FIPS, CZ_FIPS)|>
-  mutate(CZ_FIPS = str_pad(CZ_FIPS, width = 3, side = "left", pad = "0"))|>
-  mutate(STATE_FIPS = str_pad(STATE_FIPS, width = 2, side = "left", pad = "0"))|>
+T_coords <- storms |>
+  filter(EVENT_TYPE == "Tornado") |>
+  select(BEGIN_LAT, BEGIN_LON, STATE, STATE_FIPS, CZ_FIPS) |>
+  mutate(CZ_FIPS = str_pad(CZ_FIPS, width = 3, side = "left", pad = "0")) |>
+  mutate(STATE_FIPS = str_pad(STATE_FIPS, width = 2, side = "left", pad = "0")) |>
   mutate(GEOID = paste0(STATE_FIPS, CZ_FIPS))
 ```
 
@@ -377,21 +375,21 @@ Next, we download the map from the TIGRIS package, create the map df, and remove
 
 ```{r point_count, message=FALSE, warning=FALSE}
 #Total tornadoes per county
-tornadoes_per <- T_coords|> 
+tornadoes_per <- T_coords |> 
   count(GEOID, name = "T_count")
 
 #create the map
-map <- map_data('county')|>
+map <- map_data('county') |>
   rename(NAME = subregion)
 
 #get data from tigris package abt counties, have GEOID and county name
-geoid_df <- counties(state = NULL, cb = TRUE, progress_bar = FALSE)|>
+geoid_df <- counties(state = NULL, cb = TRUE, progress_bar = FALSE) |>
   #remove states not in continental US
  filter(!(STATEFP %in% c("02",15,03,07,14,43,52,64,68,70,74,81,84,
-                          86,67,89,71,76,95,79,60,66,69,72,78)))|>
-  select(NAME, GEOID, STATEFP, STATE_NAME)|>
-  mutate(NAME = tolower(NAME))|>
-  mutate(STATE_NAME = tolower(STATE_NAME))|>
+                          86,67,89,71,76,95,79,60,66,69,72,78))) |>
+  select(NAME, GEOID, STATEFP, STATE_NAME) |>
+  mutate(NAME = tolower(NAME)) |>
+  mutate(STATE_NAME = tolower(STATE_NAME)) |>
   st_drop_geometry(geoid_df)
 ```
 
@@ -424,10 +422,10 @@ geoid_df[geoid_df == "09190"] <- "09001"
 geoid_df <- unique(geoid_df)
 
 #since many counties have same name, create new state county name
-map <- map|>
+map <- map |>
     mutate(CZ_ST = paste(NAME, region, sep = ","))
 
-geoid_df <- geoid_df|>
+geoid_df <- geoid_df |>
   mutate(CZ_ST = paste(NAME, STATE_NAME, sep = ","))
 ```
 
@@ -438,11 +436,11 @@ Finally, we join the county information with the tornadoes df using their GEOID,
 all_coords_geoid <- left_join(geoid_df, tornadoes_per)
 
 # counts the number of tornadoes per county
-coords_geoid <- all_coords_geoid|>
+coords_geoid <- all_coords_geoid |>
   count(GEOID, sort = TRUE)
 
 #adds the number of tornadoes per county back to full df
-all_coords_geoid <- inner_join(all_coords_geoid, coords_geoid)|>
+all_coords_geoid <- inner_join(all_coords_geoid, coords_geoid) |>
   select(GEOID, CZ_ST, T_count)
 
 #adds number of tornadoes to map df
@@ -450,7 +448,7 @@ map_n <- right_join(all_coords_geoid, map)
 
 
 #in new df, replace NA counties with 0
-map_n <- map_n|>
+map_n <- map_n |>
   mutate(T_count = ifelse(is.na(T_count), 0, T_count))
 
 ```
@@ -459,7 +457,7 @@ map_n <- map_n|>
 
 ```{r map_tornado_density, fig.alt= "A map of the continental United States showing the quantity of tornados per county by color. The minimum is 0 in many counties in the west, northeast, and applachia. There is a maximum of 50 in 1 colorado county. Most tornadoes occur in the deep south and midwest."}
 #from https://jtr13.github.io/cc19/different-ways-of-plotting-u-s-map-in-r.html
-ggplot(data=map_n, aes(x=long, y=lat, fill = T_count, group = group))+
+ggplot(data=map_n, aes(x=long, y=lat, fill = T_count, group = group)) +
   geom_polygon(color = "black", linewidth = 0.01) + 
   theme(
     legend.position = c(.9,.22),
@@ -468,11 +466,11 @@ ggplot(data=map_n, aes(x=long, y=lat, fill = T_count, group = group))+
     axis.ticks.x = element_blank(), 
     axis.ticks.y = element_blank(),
     panel.background = element_blank(),
-    panel.grid = element_blank())+
+    panel.grid = element_blank()) +
   scale_fill_viridis_c(
     trans=scales::pseudo_log_trans(base = 10),
     breaks = c(0,5,10,20,50)
-  )+
+  ) +
   labs(
     title = "Number of tornadoes per county",
     fill = "Quantity",
